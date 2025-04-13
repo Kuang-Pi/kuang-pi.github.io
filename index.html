@@ -9,6 +9,11 @@
 <body>
     <header>
         <div class="logo"><a href="index.html"><img src="images/logoKuangPi.png" alt="KuangPi Logo"></a></div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html" class="active">首页</a></li>
@@ -18,13 +23,15 @@
                 <li><a href="contact.html">联系方式</a></li>
             </ul>
         </nav>
+        <div class="overlay"></div>
     </header>
 
     <main>
         <section class="hero">
+            <div class="hero-bg-animation"></div>
             <div class="container">
-                <h1>你好，我是KuangPi</h1>
-                <p>欢迎来到我的个人网站</p>
+                <h1>你好，我是<span class="highlight">KuangPi</span></h1>
+                <p id="typing-text">欢迎来到我的个人网站</p>
                 <div class="hero-buttons">
                     <a href="games.html" class="btn">游戏作品</a>
                     <a href="non-games.html" class="btn">非游戏作品</a>
@@ -39,5 +46,63 @@
             <p>&copy; 2025 KuangPi. 保留所有权利。</p>
         </div>
     </footer>
+
+    <script>
+        // 汉堡菜单控制
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            const overlay = document.querySelector('.overlay');
+            
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                nav.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
+            });
+            
+            overlay.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+            
+            // 打字机效果
+            function typeEffect(element, text, speed = 100) {
+                let i = 0;
+                element.textContent = '';
+                
+                function type() {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    }
+                }
+                
+                setTimeout(type, 700); // 等待页面加载完成后开始打字
+            }
+            
+            // 应用打字机效果
+            const typingElement = document.getElementById('typing-text');
+            const textToType = typingElement.textContent;
+            typeEffect(typingElement, textToType, 80);
+            
+            // 添加背景动画交互
+            const heroElement = document.querySelector('.hero');
+            const bgAnimation = document.querySelector('.hero-bg-animation');
+            
+            heroElement.addEventListener('mousemove', function(e) {
+                // 只在非移动设备上执行
+                if (window.innerWidth > 768) {
+                    const x = e.clientX / window.innerWidth;
+                    const y = e.clientY / window.innerHeight;
+                    
+                    bgAnimation.style.transform = `translate(${x * 20}px, ${y * 20}px)`;
+                }
+            });
+        });
+    </script>
 </body>
 </html> 
