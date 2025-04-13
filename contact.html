@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系方式 - KuangPi</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">KuangPi</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="games.html">游戏作品</a></li>
+                <li><a href="non-games.html">非游戏作品</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="contact.html" class="active">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>联系方式</h1>
+                <p>与我取得联系或关注我的社交媒体</p>
+            </div>
+        </section>
+        
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>联系方式</h2>
+                        <ul class="contact-list">
+                            <li>
+                                <div class="contact-icon">📧</div>
+                                <div class="contact-detail">
+                                    <h3>电子邮件</h3>
+                                    <p>your.email@example.com</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon">🔗</div>
+                                <div class="contact-detail">
+                                    <h3>GitHub</h3>
+                                    <p><a href="https://github.com/kuang-pi" target="_blank">github.com/kuang-pi</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon">💼</div>
+                                <div class="contact-detail">
+                                    <h3>LinkedIn</h3>
+                                    <p><a href="#" target="_blank">linkedin.com/in/your-profile</a></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h2>发送消息</h2>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">电子邮件</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">主题</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">消息</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">发送消息</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 KuangPi. 保留所有权利。</p>
+        </div>
+    </footer>
+</body>
+</html> 
