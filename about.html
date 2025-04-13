@@ -9,6 +9,11 @@
 <body>
     <header>
         <div class="logo"><a href="index.html"><img src="images/logoKuangPi.png" alt="KuangPi Logo"></a></div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">首页</a></li>
@@ -18,6 +23,7 @@
                 <li><a href="contact.html">联系方式</a></li>
             </ul>
         </nav>
+        <div class="overlay"></div>
     </header>
 
     <main>
@@ -43,25 +49,70 @@
                             <div class="skill-category">
                                 <h3>编程语言</h3>
                                 <ul>
-                                    <li>技能1</li>
-                                    <li>技能2</li>
-                                    <li>技能3</li>
+                                    <li>
+                                        <span class="skill-name">技能1</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-progress="90%"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="skill-name">技能2</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-progress="75%"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="skill-name">技能3</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-progress="85%"></div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="skill-category">
                                 <h3>框架与工具</h3>
                                 <ul>
-                                    <li>技能1</li>
-                                    <li>技能2</li>
-                                    <li>技能3</li>
+                                    <li>
+                                        <span class="skill-name">技能1</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-progress="80%"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="skill-name">技能2</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-progress="70%"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="skill-name">技能3</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-progress="65%"></div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="skill-category">
                                 <h3>其他技能</h3>
                                 <ul>
-                                    <li>技能1</li>
-                                    <li>技能2</li>
-                                    <li>技能3</li>
+                                    <li>
+                                        <span class="skill-name">技能1</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-progress="85%"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="skill-name">技能2</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-progress="60%"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="skill-name">技能3</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-progress="75%"></div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -79,5 +130,45 @@
             <p>&copy; 2025 KuangPi. 保留所有权利。</p>
         </div>
     </footer>
+
+    <script>
+        // 汉堡菜单控制与技能进度条动画
+        document.addEventListener('DOMContentLoaded', function() {
+            // 汉堡菜单控制
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            const overlay = document.querySelector('.overlay');
+            
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                nav.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
+            });
+            
+            overlay.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+            
+            // 技能进度条动画
+            const progressBars = document.querySelectorAll('.skill-progress');
+            
+            // 初始化所有进度条宽度为0
+            progressBars.forEach(bar => {
+                bar.style.width = '0';
+            });
+            
+            // 延迟一下以便能看到动画效果
+            setTimeout(() => {
+                progressBars.forEach(bar => {
+                    const progress = bar.getAttribute('data-progress');
+                    bar.style.width = progress;
+                });
+            }, 300);
+        });
+    </script>
 </body>
 </html> 

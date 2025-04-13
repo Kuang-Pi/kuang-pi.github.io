@@ -52,7 +52,7 @@ header {
     z-index: 1000;
     padding: 20px 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -78,10 +78,15 @@ header {
     height: auto;
 }
 
+nav {
+    margin-right: 2rem;
+    margin-left: auto;
+}
+
 nav ul {
     display: flex;
     list-style: none;
-    margin-right: 2rem;
+    justify-content: flex-end;
 }
 
 nav li {
@@ -259,7 +264,7 @@ main {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
     animation: fadeInUp 0.8s ease-out;
     display: block;
@@ -406,8 +411,48 @@ main {
 }
 
 .skill-category li {
-    padding: 5px 0;
-    color: var(--text-light);
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    background-image: linear-gradient(to right, var(--primary-color), var(--primary-hover), var(--primary-color));
+    border-radius: 4px;
+    transition: width 1s ease-out;
+    position: relative;
+    box-shadow: 0 0 8px rgba(29, 233, 182, 0.4);
+}
+
+.skill-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0.1) 100%);
+    border-radius: 4px;
 }
 
 /* 联系页面样式 */
@@ -670,6 +715,213 @@ footer p {
         flex-grow: 1;
         text-align: center;
     }
+    
+    /* 游戏列表页面移动端优化 */
+    .project-filters {
+        overflow-x: auto;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .project-filters::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    
+    .filter-btn {
+        padding: 6px 14px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+    
+    .project-card {
+        margin-bottom: 25px;
+    }
+    
+    .project-image {
+        height: 180px;
+    }
+    
+    .project-image img {
+        height: 100%;
+    }
+    
+    .project-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .project-info p {
+        font-size: 0.95rem;
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--dark-color);
+        z-index: 1000;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        margin: 0;
+        padding: 2rem;
+        align-items: flex-end; /* 右对齐导航项 */
+    }
+    
+    nav li {
+        margin: 15px 0;
+        text-align: right; /* 文本右对齐 */
+    }
+    
+    nav a {
+        font-size: 1.2rem;
+        display: block;
+        padding: 10px 0;
+    }
+    
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+    
+    .overlay.active {
+        display: block;
+    }
+    
+    header {
+        flex-direction: row;
+        padding: 15px 0;
+        position: relative;
+    }
+    
+    .logo {
+        margin-left: 2rem;
+        margin-bottom: 0;
+    }
+    
+    /* 汉堡菜单动画 */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    /* 项目详情页响应式设计 */
+    .project-detail {
+        padding: 2rem 1rem;
+    }
+    
+    .project-title h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .project-overview {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .project-info {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .project-stats {
+        width: 100%;
+    }
+    
+    .gallery-container {
+        margin: 2rem 0;
+    }
+    
+    .gallery-main {
+        height: auto;
+        aspect-ratio: 16/9;
+        position: relative;
+    }
+    
+    .gallery-thumbnails {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .gallery-thumbnails img {
+        width: calc(25% - 0.5rem);
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+    
+    .tech-stack ul, .project-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .project-links a {
+        margin: 0.5rem;
+    }
+    
+    /* 增强游戏详情页图片浏览体验 */
+    .gallery-main:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231de9b6' opacity='0.7'%3E%3Cpath d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+    
+    .gallery-main.swipe-prompt:after {
+        opacity: 0.5;
+        animation: swipeHint 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes swipeHint {
+        0%, 100% { transform: translate(-50%, -50%); }
+        50% { transform: translate(-40%, -50%); }
+    }
+    
+    /* 强化触摸反馈 */
+    .gallery-thumbnails img:active {
+        opacity: 0.8;
+        transform: scale(0.95);
+    }
 }
 
 /* 适应更小的屏幕 */
@@ -680,7 +932,7 @@ footer p {
     
     nav ul {
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-end;
     }
     
     nav li {
@@ -712,44 +964,36 @@ footer p {
         grid-template-columns: 1fr;
     }
     
-    /* 超小屏幕项目详情页优化 */
-    .page-header h1 {
-        font-size: 1.8rem;
+    /* 小屏幕游戏列表页优化 */
+    .filter-btn {
+        padding: 5px 12px;
+        font-size: 0.85rem;
     }
     
-    .page-header p {
-        font-size: 1rem;
+    .project-image {
+        height: 160px;
     }
     
-    .gallery-thumbnails img {
-        height: 50px;
-    }
-    
-    .project-tags {
-        justify-content: center;
-    }
-    
-    .project-links {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .project-links .btn {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    
-    .development-notes h2 {
-        font-size: 1.5rem;
-    }
-    
-    .tech-stack {
+    .project-info {
         padding: 15px;
     }
     
-    .tech-stack h3 {
+    .project-info h3 {
         font-size: 1.2rem;
+    }
+    
+    .project-info p {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    
+    .project-tags {
+        margin-top: 10px;
+    }
+    
+    .tag {
+        padding: 3px 8px;
+        font-size: 0.75rem;
     }
 }
 
@@ -811,6 +1055,24 @@ footer p {
     .hero-buttons .btn {
         padding: 10px 0;
         font-size: 0.9rem;
+    }
+    
+    /* 超小屏幕游戏列表页优化 */
+    .project-filters {
+        margin-bottom: 20px;
+    }
+    
+    .filter-btn {
+        padding: 4px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .project-image {
+        height: 140px;
+    }
+    
+    .project-info h3 {
+        font-size: 1.1rem;
     }
 }
 
@@ -1084,10 +1346,12 @@ footer p {
         flex-direction: column;
         margin: 0;
         padding: 2rem;
+        align-items: flex-end; /* 右对齐导航项 */
     }
     
     nav li {
         margin: 15px 0;
+        text-align: right; /* 文本右对齐 */
     }
     
     nav a {
@@ -1350,4 +1614,392 @@ footer p {
 /* 防止菜单打开时页面滚动 */
 body.no-scroll {
     overflow: hidden;
+}
+
+/* 项目卡片触摸效果 */
+.project-card.touch-active {
+    transform: scale(0.98);
+    background-color: rgba(29, 233, 182, 0.05);
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 20px rgba(29, 233, 182, 0.15);
+}
+
+/* 游戏列表筛选按钮 */
+.project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+    justify-content: center;
+}
+
+.filter-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--dark-color);
+    color: var(--text-light);
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+}
+
+.filter-btn.active {
+    box-shadow: 0 0 10px rgba(29, 233, 182, 0.3);
+}
+
+/* 为项目卡片添加过渡动画 */
+.project-card.filtered-out {
+    opacity: 0.2;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
+/* 回复其他项目详情页优化代码，这些代码不小心被删除了 */
+@media (max-width: 576px) {
+    /* 超小屏幕项目详情页优化 */
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .page-header p {
+        font-size: 1rem;
+    }
+    
+    .gallery-thumbnails img {
+        height: 50px;
+    }
+    
+    .project-tags {
+        justify-content: center;
+    }
+    
+    .project-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .project-links .btn {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .development-notes h2 {
+        font-size: 1.5rem;
+    }
+    
+    .tech-stack {
+        padding: 15px;
+    }
+    
+    .tech-stack h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* 小屏幕游戏列表页优化 */
+    .filter-btn {
+        padding: 5px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .project-image {
+        height: 160px;
+    }
+    
+    .project-info {
+        padding: 15px;
+    }
+    
+    .project-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .project-info p {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    
+    .project-tags {
+        margin-top: 10px;
+    }
+    
+    .tag {
+        padding: 3px 8px;
+        font-size: 0.75rem;
+    }
+}
+
+/* 表单聚焦效果 */
+.form-group.input-focused label {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.form-group.input-focused input,
+.form-group.input-focused textarea {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(29, 233, 182, 0.2);
+}
+
+/* 表单加载动画 */
+.spinner {
+    animation: rotate 2s linear infinite;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.spinner .path {
+    stroke: var(--dark-color);
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35;
+    }
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -124;
+    }
+}
+
+/* 联系方式页面响应式优化 */
+@media (max-width: 768px) {
+    /* 已有的媒体查询样式 */
+    
+    /* 联系方式页面移动端优化 */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .contact-info {
+        margin-bottom: 20px;
+    }
+    
+    .contact-list li {
+        margin-bottom: 20px;
+    }
+    
+    .contact-icon {
+        font-size: 1.5rem;
+        width: 30px;
+    }
+    
+    .contact-detail h3 {
+        font-size: 1.1rem;
+    }
+    
+    .form-group label {
+        font-size: 0.95rem;
+    }
+    
+    .form-group input, 
+    .form-group textarea {
+        padding: 10px;
+    }
+    
+    .success-message {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* 已有的媒体查询样式 */
+    
+    /* 小屏幕联系方式页面优化 */
+    .contact-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+        background-color: rgba(29, 233, 182, 0.05);
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .contact-icon {
+        margin-bottom: 10px;
+    }
+    
+    .contact-detail {
+        width: 100%;
+    }
+    
+    .contact-detail h3 {
+        margin-bottom: 3px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .btn-primary {
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 400px) {
+    /* 已有的媒体查询样式 */
+    
+    /* 超小屏幕联系方式页面优化 */
+    .contact-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+    
+    .form-group input, 
+    .form-group textarea {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .error-message {
+        font-size: 0.8rem;
+    }
+    
+    .success-message {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* 关于我页面响应式优化 */
+@media (max-width: 768px) {
+    /* 已有的媒体查询样式 */
+    
+    /* 关于我页面移动端优化 */
+    .about-image {
+        max-width: 250px;
+        margin: 0 auto 30px;
+    }
+    
+    .about-text h2 {
+        font-size: 1.6rem;
+    }
+    
+    .skills {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .skill-category {
+        padding: 15px;
+        background-color: rgba(29, 233, 182, 0.05);
+        border-radius: 8px;
+        margin-bottom: 5px;
+    }
+    
+    .skill-category h3 {
+        margin-bottom: 15px;
+        border-bottom: 1px solid rgba(29, 233, 182, 0.2);
+        padding-bottom: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    /* 已有的媒体查询样式 */
+    
+    /* 小屏幕关于我页面优化 */
+    .about-image {
+        max-width: 200px;
+    }
+    
+    .about-text h2 {
+        font-size: 1.4rem;
+        margin: 25px 0 10px;
+    }
+    
+    .about-text p {
+        font-size: 0.95rem;
+    }
+    
+    .skill-category {
+        padding: 12px;
+    }
+    
+    .skill-category h3 {
+        font-size: 1.1rem;
+    }
+    
+    .skill-name {
+        font-size: 0.9rem;
+    }
+    
+    .skill-bar {
+        height: 6px;
+    }
+}
+
+@media (max-width: 400px) {
+    /* 已有的媒体查询样式 */
+    
+    /* 超小屏幕关于我页面优化 */
+    .about-image {
+        max-width: 180px;
+        margin-bottom: 20px;
+    }
+    
+    .about-text h2 {
+        font-size: 1.3rem;
+        margin: 20px 0 10px;
+    }
+    
+    .about-text p {
+        font-size: 0.9rem;
+    }
+    
+    .skill-category {
+        padding: 10px;
+    }
+    
+    .skill-category h3 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    
+    .skill-name {
+        font-size: 0.85rem;
+    }
+    
+    .skill-category li {
+        padding: 8px 0;
+    }
+    
+    .skill-bar {
+        height: 5px;
+    }
 } 
