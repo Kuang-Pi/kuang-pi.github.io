@@ -254,16 +254,16 @@ main {
     display: inline-block;
     padding: 8px 16px;
     background-color: var(--primary-color);
-    color: var(--text-light);
+    color: var(--dark-color);
     border-radius: 5px;
-    font-weight: 500;
-    transition: all 0.3s;
+    font-weight: 600;
+    transition: all 0.3s ease;
     border: none;
 }
 
 .btn:hover {
     background-color: var(--primary-hover);
-    color: var(--text-light);
+    color: var(--dark-color);
     box-shadow: 0 0 10px rgba(29, 233, 182, 0.5);
 }
 
@@ -421,10 +421,13 @@ main {
     cursor: pointer;
     border: none;
     background-color: var(--primary-color);
+    color: var(--dark-color);
+    font-weight: 600;
 }
 
 .btn-primary:hover {
     background-color: var(--primary-hover);
+    color: var(--dark-color);
 }
 
 /* 页脚样式 */
@@ -486,7 +489,7 @@ footer p {
     }
 }
 
-/* 响应式设计 */
+/* 响应式设计优化 */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -513,6 +516,12 @@ footer p {
         font-size: 1.2rem;
     }
     
+    .hero-buttons {
+        flex-direction: column;
+        width: 80%;
+        margin: 20px auto 0;
+    }
+    
     .about-grid, .contact-grid {
         grid-template-columns: 1fr;
     }
@@ -522,10 +531,50 @@ footer p {
         max-width: 300px;
         margin: 0 auto;
     }
+    
+    /* 项目详情页响应式优化 */
+    .project-overview {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-main {
+        padding-top: 66.67%; /* 3:2比例，更适合移动设备 */
+    }
+    
+    .gallery-thumbnails {
+        justify-content: center;
+    }
+    
+    .gallery-thumbnails img {
+        height: 60px;
+        width: calc(33.33% - 10px);
+    }
+    
+    .project-description h2 {
+        font-size: 1.5rem;
+        margin: 25px 0 10px;
+    }
+    
+    .feature-list li, .contribution-list li {
+        margin-bottom: 15px;
+    }
+    
+    .tech-stack ul {
+        gap: 10px;
+    }
+    
+    .tech-stack li {
+        flex-grow: 1;
+        text-align: center;
+    }
 }
 
 /* 适应更小的屏幕 */
 @media (max-width: 576px) {
+    header {
+        padding: 10px 0;
+    }
+    
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
@@ -549,6 +598,58 @@ footer p {
     
     .skills {
         grid-template-columns: 1fr;
+    }
+    
+    /* 超小屏幕项目详情页优化 */
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .page-header p {
+        font-size: 1rem;
+    }
+    
+    .gallery-thumbnails img {
+        height: 50px;
+    }
+    
+    .project-tags {
+        justify-content: center;
+    }
+    
+    .project-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .project-links .btn {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .development-notes h2 {
+        font-size: 1.5rem;
+    }
+    
+    .tech-stack {
+        padding: 15px;
+    }
+    
+    .tech-stack h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* 添加触摸设备优化 */
+@media (hover: none) {
+    .project-card:after {
+        opacity: 0.5;
+        transform: translateY(0);
+    }
+    
+    .btn:active, .gallery-thumbnails img:active {
+        transform: scale(0.95);
     }
 }
 
@@ -599,4 +700,481 @@ footer p {
 
 .project-card:hover .tag {
     background-color: rgba(29, 233, 182, 0.25);
+}
+
+/* 项目详情页样式 */
+.project-detail {
+    padding: 60px 0;
+}
+
+.project-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.project-gallery {
+    animation: fadeInLeft 1s ease-out;
+}
+
+.gallery-main {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--primary-color);
+    background-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding-top: 56.25%; /* 16:9比例，适合大多数游戏截图 */
+}
+
+.gallery-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    gap: 10px;
+}
+
+.gallery-thumbnails img {
+    width: calc(50% - 5px);
+    height: 80px;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    padding: 2px;
+}
+
+.gallery-thumbnails img:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    background-color: rgba(29, 233, 182, 0.1);
+}
+
+.gallery-thumbnails img.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+    background-color: rgba(29, 233, 182, 0.2);
+    transform: translateY(-3px);
+}
+
+.project-description {
+    animation: fadeInRight 1s ease-out;
+}
+
+.project-description h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 30px 0 15px;
+}
+
+.project-description h2:first-of-type {
+    margin-top: 0;
+}
+
+.feature-list, .contribution-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+.feature-list li, .contribution-list li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.feature-list li:before, .contribution-list li:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.feature-highlight {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.development-notes {
+    margin-bottom: 40px;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.development-notes h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.development-notes p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.tech-stack {
+    background-color: rgba(29, 233, 182, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.tech-stack h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.tech-stack ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.tech-stack li {
+    background-color: rgba(29, 233, 182, 0.15);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.back-to-projects {
+    text-align: center;
+    margin-top: 40px;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+/* 汉堡菜单样式 */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+    margin-right: 2rem;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--dark-color);
+        z-index: 1000;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    nav.active {
+        right: 0;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        margin: 0;
+        padding: 2rem;
+    }
+    
+    nav li {
+        margin: 15px 0;
+    }
+    
+    nav a {
+        font-size: 1.2rem;
+        display: block;
+        padding: 10px 0;
+    }
+    
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+    
+    .overlay.active {
+        display: block;
+    }
+    
+    header {
+        flex-direction: row;
+        padding: 15px 0;
+        position: relative;
+    }
+    
+    .logo {
+        margin-left: 2rem;
+        margin-bottom: 0;
+    }
+    
+    /* 汉堡菜单动画 */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    /* 项目详情页响应式设计 */
+    .project-detail {
+        padding: 2rem 1rem;
+    }
+    
+    .project-title h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .project-overview {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .project-info {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .project-stats {
+        width: 100%;
+    }
+    
+    .gallery-container {
+        margin: 2rem 0;
+    }
+    
+    .gallery-main {
+        height: auto;
+        aspect-ratio: 16/9;
+        position: relative;
+    }
+    
+    .gallery-thumbnails {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .gallery-thumbnails img {
+        width: calc(25% - 0.5rem);
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+    
+    .tech-stack ul, .project-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .project-links a {
+        margin: 0.5rem;
+    }
+    
+    /* 增强游戏详情页图片浏览体验 */
+    .gallery-main:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231de9b6' opacity='0.7'%3E%3Cpath d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+    
+    .gallery-main.swipe-prompt:after {
+        opacity: 0.5;
+        animation: swipeHint 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes swipeHint {
+        0%, 100% { transform: translate(-50%, -50%); }
+        50% { transform: translate(-40%, -50%); }
+    }
+    
+    /* 强化触摸反馈 */
+    .gallery-thumbnails img:active {
+        opacity: 0.8;
+        transform: scale(0.95);
+    }
+}
+
+@media (max-width: 576px) {
+    .project-title h1 {
+        font-size: 1.75rem;
+    }
+    
+    .project-info h2, .project-stats h2 {
+        font-size: 1.5rem;
+    }
+    
+    .gallery-thumbnail {
+        width: calc(33.33% - 0.5rem);
+    }
+    
+    .tech-stack ul li {
+        margin: 0.25rem;
+        font-size: 0.9rem;
+    }
+    
+    .project-description {
+        font-size: 0.95rem;
+    }
+    
+    .project-feature {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .project-feature h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* 特别小的屏幕样式优化 */
+    .gallery-thumbnails {
+        margin-top: 10px;
+    }
+    
+    .gallery-thumbnails img {
+        width: calc(33.33% - 7px);
+        height: 55px;
+    }
+    
+    .tech-stack ul {
+        gap: 8px;
+    }
+    
+    .project-links .btn {
+        padding: 10px 16px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 400px) {
+    /* 超小屏幕额外优化 */
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .gallery-thumbnails img {
+        width: calc(50% - 5px);
+        height: 45px;
+    }
+    
+    .project-description h2 {
+        font-size: 1.4rem;
+        margin-top: 20px;
+    }
+    
+    .feature-list li, .contribution-list li {
+        font-size: 0.9rem;
+        padding-left: 20px;
+    }
+    
+    .feature-list li:before, .contribution-list li:before {
+        font-size: 1.2rem;
+    }
+    
+    .tech-stack {
+        padding: 12px;
+    }
+    
+    .tech-stack ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    .tech-stack li {
+        text-align: center;
+        padding: 4px 8px;
+        font-size: 0.85rem;
+    }
+}
+
+/* 改善触摸设备上的用户体验 */
+@media (hover: none) {
+    .gallery-thumbnail:hover {
+        transform: none;
+    }
+    
+    .gallery-thumbnail.active {
+        transform: translateY(-3px);
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+    
+    .btn:active {
+        transform: translateY(-2px);
+    }
+    
+    /* 增强触摸反馈 */
+    .gallery-main img:active {
+        transform: scale(0.98);
+    }
+    
+    .gallery-thumbnails img:active {
+        background-color: rgba(29, 233, 182, 0.2);
+        border-color: var(--primary-color);
+    }
+}
+
+/* 防止菜单打开时页面滚动 */
+body.no-scroll {
+    overflow: hidden;
 } 
