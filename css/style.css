@@ -108,14 +108,14 @@ main {
     font-size: 4rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
-    animation: fadeInDown 1s ease-out;
+    animation: fadeInLeft 1s ease-out;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
     font-size: 1.5rem;
     color: var(--text-light);
-    animation: fadeInUp 1s ease-out;
+    animation: fadeInRight 1s ease-out;
 }
 
 .hero-buttons {
@@ -123,7 +123,7 @@ main {
     display: flex;
     justify-content: center;
     gap: 15px;
-    animation: fadeInUp 1.2s ease-out;
+    animation: fadeInRight 1.2s ease-out;
 }
 
 .hero-buttons .btn {
@@ -142,13 +142,13 @@ main {
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
-    animation: fadeInDown 0.8s ease-out;
+    animation: fadeInLeft 0.8s ease-out;
 }
 
 .page-header p {
     font-size: 1.2rem;
     color: var(--text-light);
-    animation: fadeInUp 0.8s ease-out;
+    animation: fadeInRight 0.8s ease-out;
 }
 
 /* 项目展示样式 */
@@ -170,6 +170,11 @@ main {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, box-shadow 0.3s;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeInRight 0.8s ease-out;
+}
+
+.project-card:nth-child(even) {
+    animation: fadeInLeft 0.8s ease-out;
 }
 
 .project-card:hover {
@@ -233,11 +238,19 @@ main {
     align-items: start;
 }
 
+.about-image {
+    animation: fadeInLeft 1s ease-out;
+}
+
 .about-image img {
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     border: 2px solid var(--primary-color);
+}
+
+.about-text {
+    animation: fadeInRight 1s ease-out;
 }
 
 .about-text h2 {
@@ -288,6 +301,10 @@ main {
     gap: 50px;
 }
 
+.contact-info {
+    animation: fadeInLeft 1s ease-out;
+}
+
 .contact-list {
     list-style-type: none;
     margin-top: 30px;
@@ -319,6 +336,10 @@ main {
 
 .contact-detail a:hover {
     color: var(--primary-color);
+}
+
+.contact-form {
+    animation: fadeInRight 1s ease-out;
 }
 
 .form-group {
@@ -398,6 +419,28 @@ footer p {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
