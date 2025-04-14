@@ -1,0 +1,242 @@
+/* 导航栏基础样式 */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem var(--container-padding);
+    background-color: var(--bg-primary);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    z-index: var(--z-navbar);
+}
+
+.navbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 40px;
+    margin-right: 0.5rem;
+}
+
+/* 导航菜单 */
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav li {
+    margin: 0 0.5rem;
+}
+
+.navbar-nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.navbar-nav a:hover {
+    color: var(--color-primary);
+    background-color: var(--bg-hover);
+}
+
+.navbar-nav a.active {
+    color: var(--color-primary);
+    background-color: var(--bg-active);
+}
+
+/* 汉堡菜单图标 */
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    padding: 0.25rem;
+}
+
+/* 响应式导航 */
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: block;
+    }
+    
+    .navbar-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--bg-primary);
+        box-shadow: var(--shadow-md);
+        padding: 1rem 0;
+    }
+    
+    .navbar-nav.show {
+        display: flex;
+    }
+    
+    .navbar-nav li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .navbar-nav a {
+        display: block;
+        padding: 0.75rem 1rem;
+        border-radius: 0;
+    }
+}
+
+/* 导航栏下拉菜单 */
+.navbar-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: var(--bg-primary);
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-md);
+    padding: 0.5rem 0;
+    z-index: var(--z-dropdown);
+}
+
+.navbar-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--bg-hover);
+    color: var(--color-primary);
+}
+
+/* 导航栏按钮 */
+.navbar-btn {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.navbar-btn:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* 导航栏搜索 */
+.navbar-search {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.navbar-search input {
+    padding: 0.5rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color);
+    font-size: 0.875rem;
+}
+
+.navbar-search button {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: var(--border-radius-sm);
+    margin-left: 0.25rem;
+    cursor: pointer;
+}
+
+/* 导航栏分隔线 */
+.navbar-divider {
+    height: 1.5rem;
+    width: 1px;
+    background-color: var(--border-color);
+    margin: 0 1rem;
+}
+
+/* 导航栏暗色模式 */
+.navbar-dark {
+    background-color: var(--color-dark);
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-nav a,
+.navbar-dark .navbar-toggle {
+    color: white;
+}
+
+.navbar-dark .navbar-nav a:hover {
+    color: var(--color-primary-light);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-dark .navbar-nav a.active {
+    color: var(--color-primary-light);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* 导航栏透明模式 */
+.navbar-transparent {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* 导航栏滚动时样式变化 */
+.navbar-scrolled {
+    background-color: var(--bg-primary);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+/* 导航菜单动画 */
+@media (max-width: 768px) {
+    .navbar-nav {
+        transform: translateY(-10px);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+    
+    .navbar-nav.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+} 
