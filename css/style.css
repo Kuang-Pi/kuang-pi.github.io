@@ -2370,8 +2370,8 @@ body.no-scroll {
 
 .game-filters {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
     margin-bottom: 40px;
 }
@@ -2785,3 +2785,77 @@ body.no-scroll {
         font-size: 0.85rem;
     }
 } 
+
+/* 游戏评分徽章 */
+.rating-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--primary-color);
+    color: black;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.project-meta {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.meta-item {
+    margin-right: 12px;
+}
+
+.meta-item:not(:last-child)::after {
+    content: '•';
+    margin-left: 12px;
+}
+
+/* 游戏体验页面卡片网格 */
+.game-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .game-reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 游戏筛选按钮样式 */
+.game-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 0;
+    gap: 10px;
+}
+
+.filter-btn {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: black;
+    border-color: var(--primary-color);
+}
+
+/* 筛选效果 */
+.project-card.filtered-out {
+    display: none;
+}
