@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave me in my bubble! - KuangPi</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html"><img src="images/logoKuangPi.png" alt="KuangPi Logo"></a></div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="games.html" class="active">游戏作品</a></li>
+                <li><a href="non-games.html">非游戏作品</a></li>
+                <li><a href="game-experience.html">游戏经历</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="contact.html">联系方式</a></li>
+            </ul>
+        </nav>
+        <div class="overlay"></div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Leave me in my bubble!</h1>
+                <p>Global Game Jam 2025</p>
+            </div>
+        </section>
+        
+        <section class="project-detail">
+            <div class="container">
+                <div class="project-overview">
+                    <div class="project-gallery">
+                        <div class="gallery-main">
+                            <img src="images/placeholder.svg" alt="Leave me in my bubble! 游戏截图" id="featured-image">
+                        </div>
+                        <div class="gallery-thumbnails">
+                            <img src="images/placeholder.svg" alt="缩略图1" onclick="changeImage(this.src, this)">
+                            <img src="images/placeholder.svg" alt="缩略图2" onclick="changeImage(this.src, this)">
+                            <img src="images/placeholder.svg" alt="缩略图3" onclick="changeImage(this.src, this)">
+                            <img src="images/placeholder.svg" alt="缩略图4" onclick="changeImage(this.src, this)">
+                        </div>
+                    </div>
+                    
+                    <div class="project-description">
+                        <div class="project-tags">
+                            <span class="tag">Unity</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">GGJ2025</span>
+                            <span class="tag">2D游戏</span>
+                        </div>
+                        
+                        <h2>项目概述</h2>
+                        <p>《Leave me in my bubble!》是一款在2025年Global Game Jam期间开发的休闲动作游戏。在游戏中，玩家扮演银河奇异研究局(G.O.R.B.)的四个外星人，需要解决一场关于地球上发现的"泡泡"的激烈争论。每个外星人对什么才算是泡泡有自己坚定不移的定义：透明的？反光的？易碎的？空心的？</p>
+                        
+                        <h2>游戏特点</h2>
+                        <ul class="feature-list">
+                            <li><span class="feature-highlight">泡泡物理互动</span>：使用鼠标拖拽和爆破泡泡状物体，控制其移动轨迹</li>
+                            <li><span class="feature-highlight">匹配机制</span>：根据边框颜色将泡泡与外星人的思考泡泡匹配</li>
+                            <li><span class="feature-highlight">独特泡泡属性</span>：每种泡泡有不同的物理性质和视觉效果</li>
+                            <li><span class="feature-highlight">有趣的叙事</span>：四个外星人就"什么是泡泡"的激烈辩论</li>
+                        </ul>
+                        
+                        <h2>我的贡献</h2>
+                        <ul class="contribution-list">
+                            <li><strong>系统设计</strong>：设计了泡泡的物理系统、交互机制和游戏核心循环</li>
+                            <li><strong>主要编程</strong>：实现了泡泡的物理行为、拖拽和爆炸效果，以及判定系统</li>
+                            <li><strong>游戏平衡</strong>：调整泡泡尺寸、速度和爆炸力度，确保游戏体验流畅有趣</li>
+                            <li><strong>技术实现</strong>：解决了多个泡泡同时交互时的性能和物理计算问题</li>
+                        </ul>
+                        
+                        <div class="project-links">
+                            <a href="https://xinyueren.itch.io/leave-me-in-my-bubble" target="_blank" class="btn">在Itch.io上体验游戏</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="development-notes">
+                    <h2>开发心得</h2>
+                    <p>作为一款Game Jam作品，《Leave me in my bubble!》在短短48小时内完成了从构思到实现的全过程。在系统设计方面，最大的挑战是创造一个简单但有深度的互动系统，让泡泡的物理行为既符合直觉又有趣。</p>
+                    
+                    <p>为了实现这一点，我们设计了拖拽-缩小-爆炸的核心循环，这使得玩家可以通过精确的操作来控制泡泡的移动轨迹。在编程实现上，我们使用了Unity的物理系统，并添加了自定义的脚本来处理特殊的交互行为，如爆炸效果和推动力。</p>
+                    
+                    <p>游戏的最大亮点在于它将简单的物理互动与有趣的叙事结合起来，创造了一个既易于上手又能带来欢乐的游戏体验。</p>
+                    
+                    <div class="tech-stack">
+                        <h3>技术栈</h3>
+                        <ul>
+                            <li>Unity 2022</li>
+                            <li>C#</li>
+                            <li>Unity物理系统</li>
+                            <li>UI/UX设计</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="team-section">
+                    <h2>开发团队</h2>
+                    <div class="team-members">
+                        <div class="team-member">
+                            <div class="member-name">Xinyue Ren</div>
+                            <div class="member-role">游戏设计，UI/UX设计</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-name">Harper Shen</div>
+                            <div class="member-role">叙事设计，音频设计，配乐</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-name">Tina Xiang</div>
+                            <div class="member-role">美术资源，角色设计，背景艺术</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-name">Shengyue Zhang</div>
+                            <div class="member-role">美术资源，背景艺术</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-name">Jerry Zhang (KuangPi)</div>
+                            <div class="member-role">系统设计，编程</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-name">Bilbo Lam</div>
+                            <div class="member-role">编程</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="back-to-projects">
+                    <a href="games.html" class="btn">返回游戏作品列表</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 KuangPi. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script>
+        function changeImage(src, clickedElement) {
+            document.getElementById('featured-image').src = src;
+            
+            // 移除所有缩略图的active类
+            const thumbnails = document.querySelectorAll('.gallery-thumbnails img');
+            thumbnails.forEach(thumbnail => {
+                thumbnail.classList.remove('active');
+            });
+            
+            // 为点击的缩略图添加active类
+            clickedElement.classList.add('active');
+        }
+        
+        // 页面加载时默认选中第一个缩略图
+        window.onload = function() {
+            const firstThumbnail = document.querySelector('.gallery-thumbnails img');
+            if (firstThumbnail) {
+                firstThumbnail.classList.add('active');
+            }
+            
+            // 汉堡菜单控制
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            const overlay = document.querySelector('.overlay');
+            
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                nav.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
+            });
+            
+            overlay.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+            
+            // 为缩略图添加滑动浏览功能
+            const galleryMain = document.querySelector('.gallery-main');
+            let startX, moveX;
+            
+            galleryMain.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+            });
+            
+            galleryMain.addEventListener('touchmove', function(e) {
+                moveX = e.touches[0].clientX;
+            });
+            
+            galleryMain.addEventListener('touchend', function() {
+                if (startX && moveX) {
+                    const diff = startX - moveX;
+                    const thumbnails = document.querySelectorAll('.gallery-thumbnails img');
+                    const activeIndex = Array.from(thumbnails).findIndex(img => img.classList.contains('active'));
+                    
+                    if (Math.abs(diff) > 50) { // 确保是有意义的滑动
+                        if (diff > 0 && activeIndex < thumbnails.length - 1) {
+                            // 向左滑动，显示下一张
+                            changeImage(thumbnails[activeIndex + 1].src, thumbnails[activeIndex + 1]);
+                        } else if (diff < 0 && activeIndex > 0) {
+                            // 向右滑动，显示上一张
+                            changeImage(thumbnails[activeIndex - 1].src, thumbnails[activeIndex - 1]);
+                        }
+                    }
+                    
+                    startX = null;
+                    moveX = null;
+                }
+            });
+            
+            // 添加滑动提示
+            if (galleryMain && window.innerWidth <= 768) {
+                // 在移动设备上显示滑动提示
+                galleryMain.classList.add('swipe-prompt');
+                
+                // 3秒后隐藏提示
+                setTimeout(function() {
+                    galleryMain.classList.remove('swipe-prompt');
+                }, 3000);
+                
+                // 用户触摸后也隐藏提示
+                galleryMain.addEventListener('touchstart', function() {
+                    galleryMain.classList.remove('swipe-prompt');
+                }, {once: true});
+            }
+        };
+    </script>
+</body>
+</html> 
