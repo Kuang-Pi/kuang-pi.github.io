@@ -659,24 +659,53 @@ main {
 
 .skills {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
     margin-top: 20px;
+}
+
+.skill-category {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 0 10px rgba(29, 233, 182, 0.1);
+    border-color: rgba(29, 233, 182, 0.3);
 }
 
 .skill-category h3 {
     font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: var(--accent-color);
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.skill-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
 }
 
 .skill-category ul {
     list-style-type: none;
-    margin-left: 10px;
+    margin-left: 0;
 }
 
 .skill-category li {
-    padding: 10px 0;
+    padding: 12px 0;
     display: flex;
     flex-direction: column;
 }
@@ -684,8 +713,12 @@ main {
 .skill-name {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: 500;
+}
+
+.skill-name::after {
+    content: "";
 }
 
 .skill-bar {
@@ -706,18 +739,57 @@ main {
     box-shadow: 0 0 8px rgba(29, 233, 182, 0.4);
 }
 
-.skill-progress::after {
+/* 教育背景样式 */
+.education {
+    margin-top: 20px;
+}
+
+.education-item {
+    position: relative;
+    padding: 20px 0 20px 25px;
+    border-left: 2px solid var(--primary-color);
+    margin-bottom: 15px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.education-item:last-child {
+    margin-bottom: 0;
+}
+
+.education-item::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, 
-                rgba(255, 255, 255, 0.1) 0%, 
-                rgba(255, 255, 255, 0.2) 50%, 
-                rgba(255, 255, 255, 0.1) 100%);
-    border-radius: 4px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    left: -8.5px;
+    top: 24px;
+    box-shadow: 0 0 8px rgba(29, 233, 182, 0.6);
+}
+
+.education-item h3 {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.education-item .degree {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.education-item .year {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px;
+}
+
+.education-item .description {
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 /* 联系页面样式 */
@@ -941,7 +1013,7 @@ footer p {
     
     .about-image {
         text-align: center;
-        max-width: 300px;
+        max-width: 250px;
         margin: 0 auto;
     }
     
@@ -1188,9 +1260,41 @@ footer p {
         opacity: 0.8;
         transform: scale(0.95);
     }
+    
+    /* 关于我页面移动端适配 */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .about-image {
+        text-align: center;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .skills {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .skill-category {
+        padding: 15px;
+    }
+    
+    .education-item {
+        padding-left: 20px;
+    }
+    
+    .education-item h3 {
+        font-size: 1.2rem;
+    }
+    
+    .education-item .degree {
+        font-size: 1rem;
+    }
 }
 
-/* 适应更小的屏幕 */
 @media (max-width: 576px) {
     header {
         padding: 10px 0;
@@ -1260,6 +1364,34 @@ footer p {
     .tag {
         padding: 3px 8px;
         font-size: 0.75rem;
+    }
+    
+    /* 关于我页面超小屏幕适配 */
+    .about-text h2 {
+        font-size: 1.5rem;
+        margin: 25px 0 10px;
+    }
+    
+    .about-text p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .skill-category h3 {
+        font-size: 1.1rem;
+    }
+    
+    .education-item {
+        padding-left: 15px;
+    }
+    
+    .education-item h3 {
+        font-size: 1.1rem;
+    }
+    
+    .education-item .degree,
+    .education-item .description {
+        font-size: 0.95rem;
     }
 }
 
@@ -2085,15 +2217,18 @@ body.no-scroll {
     
     .skill-category {
         padding: 15px;
-        background-color: rgba(29, 233, 182, 0.05);
-        border-radius: 8px;
-        margin-bottom: 5px;
     }
     
-    .skill-category h3 {
-        margin-bottom: 15px;
-        border-bottom: 1px solid rgba(29, 233, 182, 0.2);
-        padding-bottom: 8px;
+    .education-item {
+        padding-left: 20px;
+    }
+    
+    .education-item h3 {
+        font-size: 1.2rem;
+    }
+    
+    .education-item .degree {
+        font-size: 1rem;
     }
 }
 
