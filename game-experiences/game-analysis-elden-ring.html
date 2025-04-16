@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艾尔登法环分析 - KuangPi</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="../index.html"><img src="../images/logoKuangPi.png" alt="KuangPi Logo"></a></div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../games.html">游戏作品</a></li>
+                <li><a href="../non-games.html">非游戏作品</a></li>
+                <li><a href="../game-experience.html" class="active">游戏经历</a></li>
+                <li><a href="../about.html">关于我</a></li>
+                <li><a href="../contact.html">联系方式</a></li>
+            </ul>
+        </nav>
+        <div class="overlay"></div>
+    </header>
+
+    <main>
+        <section class="game-analysis-header">
+            <div class="container">
+                <div class="game-analysis-header-content">
+                    <div class="game-cover-large">
+                        <img src="../images/placeholder.svg" alt="艾尔登法环封面">
+                    </div>
+                    <div class="game-info-large">
+                        <h1>艾尔登法环 Elden Ring</h1>
+                        <div class="game-meta-large">
+                            <div class="game-meta-item">
+                                <span class="game-meta-label">发行年份</span>
+                                <span class="game-meta-value">2022</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <span class="game-meta-label">开发商</span>
+                                <span class="game-meta-value">FromSoftware</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <span class="game-meta-label">发行商</span>
+                                <span class="game-meta-value">Bandai Namco</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <span class="game-meta-label">平台</span>
+                                <span class="game-meta-value">PC, PS5, Xbox Series X/S, PS4, Xbox One</span>
+                            </div>
+                        </div>
+                        <div class="game-rating-large">9.5</div>
+                        <div class="game-tags-large">
+                            <span class="tag">RPG</span>
+                            <span class="tag">动作</span>
+                            <span class="tag">开放世界</span>
+                            <span class="tag">魂类游戏</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="game-analysis-content">
+            <div class="container">
+                <!-- 在此填写您的游戏分析内容 -->
+                <div class="game-analysis-section">
+                    <h2>游戏概述</h2>
+                    <p>这里将是您对艾尔登法环的概述...</p>
+                </div>
+                
+                <div class="game-analysis-section">
+                    <h2>游戏特点分析</h2>
+                    <p>这里将是您对游戏特点的分析...</p>
+                    
+                    <div class="game-highlights">
+                        <!-- 游戏亮点将在这里列出 -->
+                    </div>
+                    
+                    <div class="game-analysis-gallery">
+                        <img src="../images/placeholder.svg" alt="游戏截图1">
+                        <img src="../images/placeholder.svg" alt="游戏截图2">
+                    </div>
+                </div>
+                
+                <div class="game-analysis-section">
+                    <h2>核心机制拆解</h2>
+                    <p>这里将是您对游戏核心机制的拆解分析...</p>
+                </div>
+                
+                <div class="game-analysis-section">
+                    <h2>设计亮点与不足</h2>
+                    <p>这里将是您对游戏设计亮点和不足的分析...</p>
+                </div>
+                
+                <div class="game-conclusion">
+                    <h3>总结</h3>
+                    <p>这里将是您的结论...</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="back-to-section">
+            <div class="container">
+                <a href="../game-experience.html" class="btn">返回游戏经历</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 KuangPi. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 汉堡菜单控制
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            const overlay = document.querySelector('.overlay');
+            
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                nav.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
+            });
+            
+            overlay.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+    </script>
+</body>
+</html> 

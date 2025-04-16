@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amoeba Metroidvania - KuangPi</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="../index.html"><img src="../images/logoKuangPi.png" alt="KuangPi Logo"></a></div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../games.html" class="active">游戏作品</a></li>
+                <li><a href="../non-games.html">非游戏作品</a></li>
+                <li><a href="../about.html">关于我</a></li>
+                <li><a href="../contact.html">联系方式</a></li>
+            </ul>
+        </nav>
+        <div class="overlay"></div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Amoeba Metroidvania</h1>
+                <p>可变形态的横版平台游戏</p>
+            </div>
+        </section>
+        
+        <section class="project-detail">
+            <div class="container">
+                <div class="project-overview">
+                    <div class="project-gallery">
+                        <div class="gallery-main">
+                            <img src="../images/amoeba-screenshot1.jpg" alt="Amoeba Metroidvania游戏截图" id="featured-image">
+                        </div>
+                        <div class="gallery-thumbnails">
+                            <img src="../images/amoeba-screenshot1.jpg" alt="游戏截图1" onclick="changeImage(this.src, this)">
+                            <img src="../images/amoeba-screenshot2.jpg" alt="游戏截图2" onclick="changeImage(this.src, this)">
+                        </div>
+                    </div>
+                    
+                    <div class="project-description">
+                        <div class="project-tags">
+                            <span class="tag">Unity</span>
+                            <span class="tag">平台游戏</span>
+                            <span class="tag">Metroidvania</span>
+                            <span class="tag">2D游戏</span>
+                        </div>
+                        
+                        <h2>项目概述</h2>
+                        <p>Amoeba Metroidvania是一款基于Unity开发的横版平台游戏，作为Major Studio Fall的第一个概念验证作品。游戏的核心机制是允许玩家在不同形态（圆形、方形和横线）之间切换，以探索不同的路径和解决各种谜题。</p>
+                        
+                        <h2>游戏特点</h2>
+                        <ul class="feature-list">
+                            <li><span class="feature-highlight">变形机制</span>：玩家可以在圆形和方形之间切换，每种形态有独特的能力</li>
+                            <li><span class="feature-highlight">探索地图</span>：类似银河恶魔城风格的地图设计，鼓励玩家探索和回溯</li>
+                            <li><span class="feature-highlight">解谜元素</span>：需要灵活运用不同形态的特性解决环境谜题</li>
+                            <li><span class="feature-highlight">平台挑战</span>：精心设计的平台跳跃挑战，测试玩家的技巧</li>
+                        </ul>
+                        
+                        <h2>我的贡献</h2>
+                        <p>作为开发团队的成员，我参与了游戏机制的设计与实现，特别是：</p>
+                        <ul class="contribution-list">
+                            <li>角色变形系统的核心逻辑实现</li>
+                            <li>部分关卡设计与环境谜题创建</li>
+                            <li>玩家控制系统优化，提升游戏手感</li>
+                            <li>参与游戏性测试与平衡调整</li>
+                        </ul>
+                        
+                        <div class="project-links">
+                            <a href="https://inkkles.itch.io/amoeba-metroidvania" target="_blank" class="btn">在Itch.io上体验游戏</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="development-notes">
+                    <h2>开发心得</h2>
+                    <p>开发这款游戏的过程充满了挑战与收获。最具挑战性的部分是设计一个既有趣又平衡的变形系统，确保两种形态各有特点且不会使游戏过于简单。我们花了大量时间调整角色的物理属性和控制手感，以确保玩家在两种形态间切换时感觉流畅自然。</p>
+                    
+                    <p>在这个项目中，我学到了很多关于Unity中物理系统的知识，以及如何设计有意义的游戏机制。这个项目也让我深入理解了Metroidvania类游戏的设计哲学，特别是如何通过解锁新能力来逐步开放游戏世界。</p>
+                    
+                    <div class="tech-stack">
+                        <h3>技术栈</h3>
+                        <ul>
+                            <li>Unity游戏引擎</li>
+                            <li>C#脚本编程</li>
+                            <li>2D物理系统</li>
+                            <li>角色控制器设计</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="back-to-projects">
+                    <a href="../games.html" class="btn">返回游戏作品列表</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 KuangPi. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script>
+        function changeImage(src, clickedElement) {
+            document.getElementById('featured-image').src = src;
+            
+            // 移除所有缩略图的active类
+            const thumbnails = document.querySelectorAll('.gallery-thumbnails img');
+            thumbnails.forEach(thumbnail => {
+                thumbnail.classList.remove('active');
+            });
+            
+            // 为点击的缩略图添加active类
+            clickedElement.classList.add('active');
+        }
+        
+        // 页面加载时默认选中第一个缩略图
+        window.onload = function() {
+            const firstThumbnail = document.querySelector('.gallery-thumbnails img');
+            if (firstThumbnail) {
+                firstThumbnail.classList.add('active');
+            }
+            
+            // 汉堡菜单控制
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            const overlay = document.querySelector('.overlay');
+            
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                nav.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
+            });
+            
+            overlay.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+            
+            // 为缩略图添加滑动浏览功能
+            const galleryMain = document.querySelector('.gallery-main');
+            let startX, moveX;
+            
+            galleryMain.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+            });
+            
+            galleryMain.addEventListener('touchmove', function(e) {
+                moveX = e.touches[0].clientX;
+            });
+            
+            galleryMain.addEventListener('touchend', function() {
+                if (startX && moveX) {
+                    const diff = startX - moveX;
+                    const thumbnails = document.querySelectorAll('.gallery-thumbnails img');
+                    const activeIndex = Array.from(thumbnails).findIndex(img => img.classList.contains('active'));
+                    
+                    if (Math.abs(diff) > 50) { // 确保是有意义的滑动
+                        if (diff > 0 && activeIndex < thumbnails.length - 1) {
+                            // 向左滑动，显示下一张
+                            changeImage(thumbnails[activeIndex + 1].src, thumbnails[activeIndex + 1]);
+                        } else if (diff < 0 && activeIndex > 0) {
+                            // 向右滑动，显示上一张
+                            changeImage(thumbnails[activeIndex - 1].src, thumbnails[activeIndex - 1]);
+                        }
+                    }
+                    
+                    startX = null;
+                    moveX = null;
+                }
+            });
+            
+            // 添加滑动提示
+            if (galleryMain && window.innerWidth <= 768) {
+                // 在移动设备上显示滑动提示
+                galleryMain.classList.add('swipe-prompt');
+                
+                // 3秒后隐藏提示
+                setTimeout(function() {
+                    galleryMain.classList.remove('swipe-prompt');
+                }, 3000);
+                
+                // 用户触摸后也隐藏提示
+                galleryMain.addEventListener('touchstart', function() {
+                    galleryMain.classList.remove('swipe-prompt');
+                }, {once: true});
+            }
+        };
+    </script>
+</body>
+</html> 

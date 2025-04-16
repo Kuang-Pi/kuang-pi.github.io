@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系方式 - KuangPi</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html"><img src="images/logoKuangPi.png" alt="KuangPi Logo"></a></div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="games.html">游戏作品</a></li>
+                <li><a href="non-games.html">非游戏作品</a></li>
+                <li><a href="game-experience.html">游戏经历</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="contact.html" class="active">联系方式</a></li>
+            </ul>
+        </nav>
+        <div class="overlay"></div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>联系方式</h1>
+                <p>与我取得联系或关注我的社交媒体</p>
+            </div>
+        </section>
+        
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>联系方式</h2>
+                        <ul class="contact-list">
+                            <li>
+                                <div class="contact-icon">📧</div>
+                                <div class="contact-detail">
+                                    <h3>电子邮件</h3>
+                                    <p>kuang.314159@gmail.com</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon">🔗</div>
+                                <div class="contact-detail">
+                                    <h3>GitHub</h3>
+                                    <p><a href="https://github.com/kuang-pi" target="_blank">github.com/kuang-pi</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon">💼</div>
+                                <div class="contact-detail">
+                                    <h3>LinkedIn</h3>
+                                    <p><a href="#" target="_blank">linkedin.com/in/KuangPi</a></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h2>发送消息</h2>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input type="text" id="name" name="name" required>
+                                <div class="error-message" id="name-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">电子邮件</label>
+                                <input type="email" id="email" name="email" required>
+                                <div class="error-message" id="email-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">主题</label>
+                                <input type="text" id="subject" name="subject" required>
+                                <div class="error-message" id="subject-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">消息</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <div class="error-message" id="message-error"></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <span class="btn-text">发送消息</span>
+                                <span class="btn-loading" style="display: none;">
+                                    <svg class="spinner" viewBox="0 0 50 50">
+                                        <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                                    </svg>
+                                </span>
+                            </button>
+                        </form>
+                        <div id="success-message" class="success-message" style="display: none;">
+                            消息已发送！感谢您的联系，我会尽快回复。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 KuangPi. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 汉堡菜单控制
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            const overlay = document.querySelector('.overlay');
+            
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                nav.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
+            });
+            
+            overlay.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+            
+            // 简单的表单验证
+            const contactForm = document.getElementById('contact-form');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const subjectInput = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 重置错误信息
+                document.querySelectorAll('.error-message').forEach(elem => {
+                    elem.textContent = '';
+                });
+                document.querySelectorAll('.input-error').forEach(elem => {
+                    elem.classList.remove('input-error');
+                });
+                
+                let isValid = true;
+                
+                // 验证名称
+                if (nameInput.value.trim() === '') {
+                    document.getElementById('name-error').textContent = '请输入您的姓名';
+                    nameInput.classList.add('input-error');
+                    isValid = false;
+                }
+                
+                // 验证邮箱
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value)) {
+                    document.getElementById('email-error').textContent = '请输入有效的电子邮件地址';
+                    emailInput.classList.add('input-error');
+                    isValid = false;
+                }
+                
+                // 验证主题
+                if (subjectInput.value.trim() === '') {
+                    document.getElementById('subject-error').textContent = '请输入消息主题';
+                    subjectInput.classList.add('input-error');
+                    isValid = false;
+                }
+                
+                // 验证消息内容
+                if (messageInput.value.trim() === '') {
+                    document.getElementById('message-error').textContent = '请输入消息内容';
+                    messageInput.classList.add('input-error');
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // 显示加载状态
+                    const submitButton = contactForm.querySelector('button[type="submit"]');
+                    submitButton.querySelector('.btn-text').style.display = 'none';
+                    submitButton.querySelector('.btn-loading').style.display = 'inline-block';
+                    submitButton.disabled = true;
+                    
+                    // 模拟表单提交
+                    setTimeout(function() {
+                        contactForm.reset();
+                        submitButton.querySelector('.btn-text').style.display = 'inline-block';
+                        submitButton.querySelector('.btn-loading').style.display = 'none';
+                        submitButton.disabled = false;
+                        
+                        // 显示成功消息
+                        document.getElementById('success-message').style.display = 'block';
+                        
+                        // 3秒后隐藏成功消息
+                        setTimeout(function() {
+                            document.getElementById('success-message').style.display = 'none';
+                        }, 5000);
+                    }, 1500);
+                }
+            });
+            
+            // 移动端表单字段聚焦效果
+            const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
+            
+            formInputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('input-focused');
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.parentElement.classList.remove('input-focused');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

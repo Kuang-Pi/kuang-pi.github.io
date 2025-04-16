@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非游戏作品 - KuangPi</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html"><img src="images/logoKuangPi.png" alt="KuangPi Logo"></a></div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="games.html">游戏作品</a></li>
+                <li><a href="non-games.html" class="active">非游戏作品</a></li>
+                <li><a href="game-experience.html">游戏经历</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="contact.html">联系方式</a></li>
+            </ul>
+        </nav>
+        <div class="overlay"></div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>非游戏作品</h1>
+                <p>说是非游戏，但我的人生已经和游戏紧紧地绑定在一起了，真的分得开吗？</p>
+            </div>
+        </section>
+        
+        <section class="projects">
+            <div class="container">
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="app">应用程序</button>
+                    <button class="filter-btn" data-filter="web">网站</button>
+                    <button class="filter-btn" data-filter="design">设计</button>
+                    <button class="filter-btn" data-filter="other">其他</button>
+                </div>
+                
+                <div class="project-grid">
+                    <!-- 项目1 -->
+                    <a href="#" class="project-card" data-categories="app design">
+                        <div class="project-image">
+                            <img src="images/placeholder.svg" alt="非游戏项目1">
+                        </div>
+                        <div class="project-info">
+                            <h3>应用项目1</h3>
+                            <p>这是一个应用项目的简短描述。这里可以介绍应用功能、技术栈等。</p>
+                            <div class="project-tags">
+                                <span class="tag">应用程序</span>
+                                <span class="tag">设计</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- 项目2 -->
+                    <a href="#" class="project-card" data-categories="web design">
+                        <div class="project-image">
+                            <img src="images/placeholder.svg" alt="非游戏项目2">
+                        </div>
+                        <div class="project-info">
+                            <h3>网站项目1</h3>
+                            <p>这是一个网站项目的简短描述。这里可以介绍网站功能、设计理念等。</p>
+                            <div class="project-tags">
+                                <span class="tag">网站</span>
+                                <span class="tag">设计</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 KuangPi. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 汉堡菜单控制
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            const overlay = document.querySelector('.overlay');
+            
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                nav.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
+            });
+            
+            overlay.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+            
+            // 为项目卡片添加触摸反馈效果
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            projectCards.forEach(card => {
+                card.addEventListener('touchstart', function() {
+                    this.classList.add('touch-active');
+                });
+                
+                card.addEventListener('touchend', function() {
+                    this.classList.remove('touch-active');
+                });
+                
+                card.addEventListener('touchcancel', function() {
+                    this.classList.remove('touch-active');
+                });
+            });
+            
+            // 项目筛选功能
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 移除所有按钮的激活状态
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // 为当前按钮添加激活状态
+                    this.classList.add('active');
+                    
+                    // 获取筛选类别
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // 筛选项目
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.classList.remove('filtered-out');
+                        } else {
+                            const categories = card.getAttribute('data-categories');
+                            if (categories && categories.includes(filterValue)) {
+                                card.classList.remove('filtered-out');
+                            } else {
+                                card.classList.add('filtered-out');
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

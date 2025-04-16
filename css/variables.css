@@ -1,0 +1,104 @@
+:root {
+    /* 主题颜色 */
+    --primary-color: #3498db;
+    --primary-rgb: 52, 152, 219;
+    --primary-dark: #2980b9;
+    --primary-light: #5dade2;
+    
+    --secondary-color: #2ecc71;
+    --secondary-rgb: 46, 204, 113;
+    --secondary-dark: #27ae60;
+    --secondary-light: #58d68d;
+    
+    --tertiary-color: #9b59b6;
+    --tertiary-rgb: 155, 89, 182;
+    --tertiary-dark: #8e44ad;
+    --tertiary-light: #bb8fce;
+    
+    /* 功能性颜色 */
+    --success-color: #2ecc71;
+    --info-color: #3498db;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    
+    /* 中性颜色 */
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --gray-color: #bdc3c7;
+    --gray-dark: #7f8c8d;
+    --gray-light: #ecf0f1;
+    
+    /* 文本颜色 */
+    --text-dark: #2c3e50;
+    --text-light: #ecf0f1;
+    --text-muted: #95a5a6;
+    
+    /* 背景颜色 */
+    --bg-light: #f8f9fa;
+    --bg-dark: #2c3e50;
+    --bg-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    
+    /* 边框颜色 */
+    --border-color: #ddd;
+    --border-dark: #bbb;
+    --border-light: #eee;
+    
+    /* 阴影 */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    
+    /* 间距和尺寸 */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 3rem;
+    
+    /* 字体 */
+    --font-family-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-family-mono: 'Roboto Mono', Menlo, Monaco, Consolas, 'Courier New', monospace;
+    
+    /* 字体大小 */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-xxl: 2rem;
+    --font-size-xxxl: 3rem;
+    
+    /* 圆角 */
+    --border-radius-sm: 0.2rem;
+    --border-radius: 0.3rem;
+    --border-radius-lg: 0.5rem;
+    --border-radius-pill: 50rem;
+    
+    /* 动画 */
+    --transition-speed: 0.3s;
+    --transition-timing: ease;
+    
+    /* Z-索引层级 */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+    
+    /* 布局 */
+    --container-padding: 1rem;
+    --container-max-width: 1200px;
+    --grid-gutter: 1.5rem;
+    --header-height: 70px;
+    --footer-height: 60px;
+    
+    /* 移动端断点 */
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+} 
