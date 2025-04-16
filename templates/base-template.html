@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><!-- TITLE: Kuang Pi 个人网站 --></title>
+    <meta name="description" content="<!-- DESCRIPTION: Kuang Pi的个人作品集和博客网站，展示游戏开发和编程项目。 -->">
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- EXTRA_CSS -->
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="../index.html">Kuang Pi</a>
+                </div>
+                <nav>
+                    <div class="menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="../projects.html">项目</a></li>
+                        <li><a href="../blog.html">博客</a></li>
+                        <li><a href="../about.html">关于我</a></li>
+                        <li><a href="../contact.html">联系我</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main>
+        <!-- CONTENT -->
+    </main>
+
+    <!-- 底部联系区域 -->
+    <section class="cta-section section-padding bg-primary text-light">
+        <div class="container text-center">
+            <h2><!-- CTA_TITLE: 对这个项目有疑问或想了解更多？ --></h2>
+            <p><!-- CTA_TEXT: 欢迎联系我讨论合作机会或了解更多项目细节 --></p>
+            <a href="../contact.html" class="btn btn-light">联系我</a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Kuang Pi</h3>
+                    <p>游戏开发与编程作品集</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h4>导航</h4>
+                        <ul>
+                            <li><a href="../index.html">首页</a></li>
+                            <li><a href="../projects.html">项目</a></li>
+                            <li><a href="../blog.html">博客</a></li>
+                            <li><a href="../about.html">关于我</a></li>
+                            <li><a href="../contact.html">联系我</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>社交媒体</h4>
+                        <ul class="social-links">
+                            <li><a href="#"><i class="icon-github"></i> GitHub</a></li>
+                            <li><a href="#"><i class="icon-linkedin"></i> LinkedIn</a></li>
+                            <li><a href="#"><i class="icon-twitter"></i> Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2023</span> Kuang Pi. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 动态更新年份
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // 菜单切换
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        });
+
+        // EXTRA_SCRIPTS
+    </script>
+</body>
+</html> 
