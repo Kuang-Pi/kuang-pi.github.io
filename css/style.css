@@ -565,19 +565,31 @@ main {
 
 /* 表单提交按钮样式 */
 .btn-primary {
-    background-color: transparent;
-    color: var(--text-light);
     padding: 12px 20px;
     width: 100%;
     font-size: 1rem;
     cursor: pointer;
     border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    font-weight: 600;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
     overflow: hidden;
     z-index: 1;
-    font-weight: 600;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 5px rgba(29, 233, 182, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    color: var(--dark-color);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2), 0 0 10px rgba(29, 233, 182, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 0 5px rgba(29, 233, 182, 0.2);
 }
 
 .btn-primary:before {
@@ -587,28 +599,10 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--primary-color);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
     z-index: -1;
-}
-
-.btn-primary:hover {
-    color: var(--dark-color);
-    border-color: var(--primary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2), 0 0 10px rgba(29, 233, 182, 0.3);
-}
-
-.btn-primary:hover:before {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-.btn-primary:active {
-    transform: translateY(-1px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 0 5px rgba(29, 233, 182, 0.2);
 }
 
 .btn-primary .btn-loading {
@@ -627,8 +621,6 @@ main {
     gap: 40px;
     align-items: start;
 }
-
-/* 删除about-image相关样式 */
 
 .about-text {
     max-width: 900px; /* 设置最大宽度 */
@@ -878,15 +870,45 @@ main {
     width: 100%;
     font-size: 1rem;
     cursor: pointer;
-    border: none;
+    border: 2px solid var(--primary-color);
     background-color: var(--primary-color);
     color: var(--dark-color);
     font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 5px rgba(29, 233, 182, 0.2);
 }
 
 .btn-primary:hover {
     background-color: var(--primary-hover);
     color: var(--dark-color);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2), 0 0 10px rgba(29, 233, 182, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 0 5px rgba(29, 233, 182, 0.2);
+}
+
+.btn-primary:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+    z-index: -1;
+}
+
+.btn-primary .btn-loading {
+    position: relative;
+    z-index: 2;
 }
 
 /* 页脚样式 */
@@ -1290,6 +1312,38 @@ footer p {
     
     .education-item .degree {
         font-size: 1rem;
+    }
+    
+    /* 联系页面移动端适配 */
+    .contact-info {
+        margin-bottom: 20px;
+    }
+    
+    .contact-list li {
+        margin-bottom: 20px;
+    }
+    
+    .contact-icon {
+        font-size: 1.5rem;
+        width: 30px;
+    }
+    
+    .contact-detail h3 {
+        font-size: 1.1rem;
+    }
+    
+    .form-group label {
+        font-size: 0.95rem;
+    }
+    
+    .form-group input, 
+    .form-group textarea {
+        padding: 10px;
+    }
+    
+    .success-message {
+        padding: 12px;
+        font-size: 0.95rem;
     }
 }
 
@@ -1869,6 +1923,38 @@ footer p {
     .education-item .degree {
         font-size: 1rem;
     }
+    
+    /* 联系页面移动端适配 */
+    .contact-info {
+        margin-bottom: 20px;
+    }
+    
+    .contact-list li {
+        margin-bottom: 20px;
+    }
+    
+    .contact-icon {
+        font-size: 1.5rem;
+        width: 30px;
+    }
+    
+    .contact-detail h3 {
+        font-size: 1.1rem;
+    }
+    
+    .form-group label {
+        font-size: 0.95rem;
+    }
+    
+    .form-group input, 
+    .form-group textarea {
+        padding: 10px;
+    }
+    
+    .success-message {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -2384,8 +2470,9 @@ body.no-scroll {
 
 .game-reviews-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
+    margin-top: 40px;
 }
 
 .game-review-card {
