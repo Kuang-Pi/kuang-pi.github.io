@@ -623,30 +623,26 @@ main {
 
 .about-grid {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 1fr; /* 修改为单列布局 */
     gap: 40px;
     align-items: start;
 }
 
-.about-image {
-    animation: fadeInLeft 1s ease-out;
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border: 2px solid var(--primary-color);
-}
+/* 删除about-image相关样式 */
 
 .about-text {
-    animation: fadeInRight 1s ease-out;
+    max-width: 900px; /* 设置最大宽度 */
+    margin: 0 auto; /* 居中显示 */
 }
 
 .about-text h2 {
-    font-size: 1.8rem;
     color: var(--primary-color);
-    margin: 30px 0 15px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.about-text h2:not(:first-child) {
+    margin-top: 50px; /* 增加非第一个标题的上边距，使主要部分之间有更大间隔 */
 }
 
 .about-text h2:first-child {
@@ -655,13 +651,15 @@ main {
 
 .about-text p {
     color: var(--text-light);
+    margin-bottom: 15px; /* 段落间距 */
 }
 
 .skills {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    margin-top: 20px;
+    margin-top: 30px; /* 增加技能部分的上边距 */
+    margin-bottom: 50px; /* 增加技能部分的下边距 */
 }
 
 .skill-category {
@@ -741,7 +739,7 @@ main {
 
 /* 教育背景样式 */
 .education {
-    margin-top: 20px;
+    margin-top: 30px; /* 增加教育背景部分的上边距 */
 }
 
 .education-item {
@@ -1366,7 +1364,7 @@ footer p {
         font-size: 0.75rem;
     }
     
-    /* 关于我页面超小屏幕适配 */
+    /* 关于我页面的超小屏幕适配 */
     .about-text h2 {
         font-size: 1.5rem;
         margin: 25px 0 10px;
@@ -1392,6 +1390,10 @@ footer p {
     .education-item .degree,
     .education-item .description {
         font-size: 0.95rem;
+    }
+    
+    .steam-card iframe {
+        height: 220px;
     }
 }
 
@@ -1917,6 +1919,10 @@ footer p {
     .project-links .btn {
         padding: 10px 16px;
         font-size: 0.95rem;
+    }
+    
+    .steam-card iframe {
+        height: 220px;
     }
 }
 
@@ -2858,4 +2864,51 @@ body.no-scroll {
 /* 筛选效果 */
 .project-card.filtered-out {
     display: none;
+}
+
+/* Steam个人资料卡片样式 */
+.steam-profile {
+    margin-top: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid rgba(23, 26, 33, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.steam-profile h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.steam-card {
+    background-color: #1b2838;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.steam-card iframe {
+    display: block;
+}
+
+.steam-link {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.steam-link .btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #1b2838;
+    border-color: #66c0f4;
+    transition: all 0.3s ease;
+}
+
+.steam-link .btn:hover {
+    background-color: #66c0f4;
+    color: #1b2838;
 }
